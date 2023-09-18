@@ -3,8 +3,10 @@ package hellojpa;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-@Entity
+@Entity // name이라는 속성이 있는데 클래스 이름을 웬만하면 따라감
+//@Table(name = "MB") 만약 Member말고 다른 테이블과 매핑하고싶을경우 name을 지정해줌 , catalog, schema로 설정가능
 public class Member {
 
 

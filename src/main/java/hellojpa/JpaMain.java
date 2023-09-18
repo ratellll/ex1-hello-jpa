@@ -18,10 +18,10 @@ public class JpaMain {
         tx.begin();
 
         try { // 정석코드는 try catch해주는것 ,트랜잭션을 try안에다가 넣어주기
-            Member member = new Member(100L, "han" , 240);
-            em.persist(member);
-            em.flush();
+            Member member = em.find(Member.class, "sol");
+            member.setSize(250);
 
+            em.detach(member);
             System.out.println("==============");
             tx.commit();
             //em.persist(member); //  트랜잭션부분 트랜잭션은 db상태를 변화시키기는 수행작업단위
