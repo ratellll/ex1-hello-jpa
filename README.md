@@ -60,4 +60,15 @@ JPA를 사용해서 테이블과 매핑할 클래스는 Entity 필수
 - 기본생성자 필수 (파라미터가 없는 public 이나 protected 생성자)
 - final클래스 , enum, interface, inner클래스 사용x
 - 저장할 필드에 final 사용x
-- 
+
+생성된 DDL은 불안할수있으니 운영에서 웬만하면 사용 x 다듬어서 사용해야함
+DDL종류
+create :  기존테이블 삭제후 다시 생성
+create-drop : 종료시점에서 테이블 드랍
+update : 번경분만 반영 (운영db사용 xxxx)
+validate : 엔티티와 테이블이 정상 매핑되었는지만 확인
+none : 사용 x
+
+개발초기에는 create 또는 update (웬만하면 vaildate만 개발서버에서도 x)
+테스트서버는 UPDATE 또는 vaildate
+스테이징과 운영서버는 vaildate or noe
