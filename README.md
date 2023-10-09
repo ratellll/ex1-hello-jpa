@@ -72,3 +72,10 @@ none : 사용 x
 개발초기에는 create 또는 update (웬만하면 vaildate만 개발서버에서도 x)
 테스트서버는 UPDATE 또는 vaildate
 스테이징과 운영서버는 vaildate or noe
+
+
+
+기본매핑시----
+시간찍을땐 편하게 java LocalDateTime사용하기
+Enum사용시 String 꼭붙여주기 ORDINAL사용시 꼬일수있음
+Column매핑시 nullable이나 insertlable,updateable설정하기
