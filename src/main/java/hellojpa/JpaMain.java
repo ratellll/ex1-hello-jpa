@@ -18,14 +18,26 @@ public class JpaMain {
         tx.begin();
 
         try { // 정석코드는 try catch해주는것 ,트랜잭션을 try안에다가 넣어주기
+
             Team team = new Team();
             team.setName("TeamA");
             em.persist(team);
 
             Member member = new Member();
             member.setUsername("member1");
-            member.setTeamId(team.getId());
+            member.setTeam(team);
             em.persist(member);
+
+            em.flush();
+            em.clear();
+            Member findMember = em.find(Member.class, member.getId());
+            List<Member> members = findMember.getTeam().getMembers();
+
+            for (Member m : members) {
+                System.out.println( "m = " + m.getUsername());
+            }
+
+
 
             tx.commit();
             //em.persist(member); //  트랜잭션부분 트랜잭션은 db상태를 변화시키기는 수행작업단위

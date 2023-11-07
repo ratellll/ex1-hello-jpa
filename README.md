@@ -79,3 +79,21 @@ none : 사용 x
 시간찍을땐 편하게 java LocalDateTime사용하기
 Enum사용시 String 꼭붙여주기 ORDINAL사용시 꼬일수있음
 Column매핑시 nullable이나 insertlable,updateable설정하기
+
+객체의 양방향관계는 사실 양방향관계가 아니라 서로다른 단방향관계 2개이다.
+객체를 양방향으로 참조하려면 단방향 연관관계를 2개만들어야한다.
+
+ex) A- > B (a.getB())       class A {
+                                    B b;
+                                        }
+ex) B- > A (b.getA())       class B {
+                                    A a;
+                                        }
+
+테이블은 외래키 하나로 두 테이블의 연관관계를 관리
+
+ex ) join
+ 
+
+외래키가 항상 주인 
+Many쪽이 항상 주인이라고생각한다
