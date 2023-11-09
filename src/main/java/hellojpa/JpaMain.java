@@ -19,14 +19,16 @@ public class JpaMain {
 
         try { // 정석코드는 try catch해주는것 ,트랜잭션을 try안에다가 넣어주기
 
+
+            Member member = new Member();
+            member.setUsername("member1");
+            em.persist(member);
+
             Team team = new Team();
             team.setName("TeamA");
             em.persist(team);
 
-            Member member = new Member();
-            member.setUsername("member1");
-            member.setTeam(team);
-            em.persist(member);
+
 
             em.flush();
             em.clear();

@@ -18,6 +18,10 @@ public class Team {
  @OneToMany(mappedBy = "team") // 반대편 변수명 넣어주기
  private List<Member> members = new ArrayList<>();
 
+    public void addMember(Member member) {
+        member.setTeam(this);
+        members.add(member);
+    }
     public List<Member> getMembers() {
         return members;
     }
