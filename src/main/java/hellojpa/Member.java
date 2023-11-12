@@ -30,7 +30,9 @@ public class Member {
     //columnDefinition은 내가 직접 설정을할수있음 ex)varchar(100)
     private String username;
 
-
+    @OneToOne
+    @JoinColumn(name = "LOCKER_ID")
+    private Locker locker;
     @ManyToOne
     @JoinColumn(name = "TEAM_ID")
     private Team team;
