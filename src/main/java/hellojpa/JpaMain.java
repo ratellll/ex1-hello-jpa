@@ -19,6 +19,13 @@ public class JpaMain {
 
         try { // 정석코드는 try catch해주는것 ,트랜잭션을 try안에다가 넣어주기
 
+            Model model = new Model();
+            model.setModel("dunkhigh");
+            model.setName("panda");
+            model.setPrice(150000);
+            model.setSize(270);
+
+            em.persist(model);
 
             tx.commit();
             //em.persist(member); //  트랜잭션부분 트랜잭션은 db상태를 변화시키기는 수행작업단위
