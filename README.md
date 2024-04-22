@@ -136,3 +136,15 @@ JPA를 사용해야하는 이유
 - 엔티티매니저는 쓰레드간에 공유 x (사용하고 버려야함 , 로직이돌때 한번사용하고버리는것
 - ***** JPA의 모든 데이터 변경은 트랙잭션 안에서 실행 ****
 
+
+    /**
+     * Member member = new Member();
+     * member.setid("mem");
+     * member.setUserName("bin");
+     * 
+     * //1차캐시에 저장됨
+     * em.persist(member);
+     * 
+     * //1차캐시에서 조회
+     * Member findMember = em.find(Member.class, "mem");
+     */
