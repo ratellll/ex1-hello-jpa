@@ -176,3 +176,9 @@ JPA를 사용해야하는 이유
 - JPA에서 사용할 엔티티 이름을 지정한다
 - 기본값: 클래스 이름을 그대로 사용(ex:Member)
 - 같은 클래스 이름이 없으면 가급적 기본값을 사용한다
+
+
+@Column
+-nullable(DDL) null값의 허용 여부를 설정, false로 설정하면 DDL생성시에 not null제약이붙는다
+-unique(DDL)  @Table의 uniqueConstraints와 같지만 한 컬럼에 간단히 유니크 제 약조건을 걸 때 사용한다.
+-columnDefinition (DDL)   데이터베이스 컬럼 정보를 직접 줄 수 있다.   ex) varchar(100) default ‘EMPTY'
