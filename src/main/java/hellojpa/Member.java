@@ -8,7 +8,13 @@ import java.util.Date;
 @Entity
 public class Member {
 
-    @Id
+    @Id //Id를 직접할당 (db에서 사용되는id)
+    //@GeneratedValue Id를 자동생성시켜줌
+    //@GeneratedValue(strategy = GenerationType.IDENTITY) 기본 키 생성을 데이터베이스에 위임하는것
+    //@GeneratedValue(strategy = GenerationType.SEQUENCE) 시퀀스사용 (자동생성되는것)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY) 기본 키 생성을 데이터베이스에 위임하는것
+    //@GeneratedVㅁalue(strategy = GenerationType.IDENTITY) 기본 키 생성을 데이터베이스에 위임하는것
+    //@GeneratedValue(strategy = GenerationType.IDENTITY) 기본 키 생성을 데이터베이스에 위임하는것
     private Long id;
     @Column(name = "name")
     private String username;
@@ -78,10 +84,6 @@ public class Member {
         this.description = description;
     }
 
-
-
-
-
     public Long getId() {
         return id;
     }
@@ -90,11 +92,11 @@ public class Member {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
