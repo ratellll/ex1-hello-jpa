@@ -182,3 +182,12 @@ JPA를 사용해야하는 이유
 -nullable(DDL) null값의 허용 여부를 설정, false로 설정하면 DDL생성시에 not null제약이붙는다
 -unique(DDL)  @Table의 uniqueConstraints와 같지만 한 컬럼에 간단히 유니크 제 약조건을 걸 때 사용한다.
 -columnDefinition (DDL)   데이터베이스 컬럼 정보를 직접 줄 수 있다.   ex) varchar(100) default ‘EMPTY'
+
+id 생성 전략중 
+TABLE 전략 이라는게 있음
+키 생성 전용 테이블을 하나 만들어서 DB시퀀스를 흉내내는 전략
+장점은 모든 DB에 다 적용을할수있음 하지만 단점은 테이블을 직접사용하다보니 성능이슈가있음 
+
+권장하는 식별자 전략 
+- 기본키 제약조건: null아님, 유일해야함,변하면안됌
+만일 IDENTITY 전략을 사용한다면 DB에 값이 들어가봐야 키를 확인할수있다.
