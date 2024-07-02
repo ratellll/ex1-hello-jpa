@@ -182,6 +182,15 @@ JPA를 사용해야하는 이유
 - 기본값: 클래스 이름을 그대로 사용(ex:Member)
 - 같은 클래스 이름이 없으면 가급적 기본값을 사용한다
 
+데이터베이스 스키마 자동생성
+create - 기존 테이블을 drop후 다시 생성 (프로그램실행시점)
+create-drop - create와 같으나 프로그램 종료시점에서 테이블 drop
+update - 변경분만 반영 (운영DB사용 금물) -ex) alterTable로 테이블수정
+validate - 엔티티와 테이블이 정상 매핑 되었는지만 확인 -ex)매핑이 되어있지않은경우 missing table 오류 발생
+- 개발 초기 단계는 create 또는 update사용
+- 테스트 서버는 update 또는 validate
+- 스테이징과 운영서버는 validate 또는 none
+- 사실 validate 말고는 사용안하는게좋음
 
 @Column
 -nullable(DDL) null값의 허용 여부를 설정, false로 설정하면 DDL생성시에 not null제약이붙는다
