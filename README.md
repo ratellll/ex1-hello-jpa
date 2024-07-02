@@ -192,10 +192,15 @@ validate - 엔티티와 테이블이 정상 매핑 되었는지만 확인 -ex)�
 - 스테이징과 운영서버는 validate 또는 none
 - 사실 validate 말고는 사용안하는게좋음
 
+
 @Column
 -nullable(DDL) null값의 허용 여부를 설정, false로 설정하면 DDL생성시에 not null제약이붙는다
 -unique(DDL)  @Table의 uniqueConstraints와 같지만 한 컬럼에 간단히 유니크 제 약조건을 걸 때 사용한다.
 -columnDefinition (DDL)   데이터베이스 컬럼 정보를 직접 줄 수 있다.   ex) varchar(100) default ‘EMPTY'
+
+@Enumerated
+- Enum타입을 매핑할때 사용
+- ORDINAL 사용 X ) 왜냐하면 수정할일이있을때 꼬인다  STRING으로 사용해야함
 
 id 생성 전략중 
 TABLE 전략 이라는게 있음

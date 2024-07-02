@@ -15,8 +15,6 @@ public class JpaMain {
 
         try {
 
-            Member member = new Member(4L, "뚱뚱뚱냥이");
-            em.persist(member);
 
             System.out.println("=============");
 
