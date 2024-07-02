@@ -2,10 +2,12 @@ package hellojpa;
 
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-@Entity
+@Entity //JPA를 사용해서 테이블과 매핑할 클래스를 지정해주는것
+//@Entity(name ="mem) 이런식으로 JPA에서 사용할 엔티티 이름을 지정한다.
+//@Table(name = "Mbr")
 public class Member {
 
     @Id
