@@ -8,17 +8,24 @@ import jakarta.persistence.*;
 //@Entity(name ="mem) 이런식으로 JPA에서 사용할 엔티티 이름을 지정한다.  -JPA 쿼리에서 엔티티 이름을 지정
 //@Table(name = "MBR") // Entity클래스의 세부설정을 위함  -데이터베이스의 테이블 이름을 지정
 //@SequenceGenerator(name = "member_seq_generator",sequenceName = "member_seq")
-@SequenceGenerator(name = "MEMBER_SEQ_GENERATOR",
-        sequenceName = "MEMBER_SEQ",
-initialValue = 1,allocationSize = 50)
+//@SequenceGenerator(name = "MEMBER_SEQ_GENERATOR",
+//        sequenceName = "MEMBER_SEQ",
+//initialValue = 1,allocationSize = 50)
 public class Member {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)//,generator = "member_seq_generator")
+    @GeneratedValue//(strategy = GenerationType.SEQUENCE)//,generator = "member_seq_generator")
+    @Column(name = "MEMBER_ID")
     private Long id;
 
-    @Column(name = "name",nullable = false)
+    @Column(name = "USERNAME")
     private String userName;
+
+//    @Column(name = "TEAM_ID")
+//    private Long teamId;
+    @ManyToOne
+    @JoinColumn(name = "TEAM_ID")
+    private Team team;
 
     public Long getId() {
         return id;
@@ -36,9 +43,11 @@ public class Member {
         this.userName = userName;
     }
 
-    public Member() {
-
+    public Team getTeam() {
+        return team;
     }
 
-
+    public void setTeam(Team team) {
+        this.team = team;
+    }
 }

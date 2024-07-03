@@ -15,25 +15,21 @@ public class JpaMain {
 
         try {
 
-            Member member1 = new Member();
-            member1.setUserName("현빈쓰");
+            Team team = new Team();
+            team.setName("빈이팀");
+            em.persist(team);
 
-            Member member2 = new Member();
-            member2.setUserName("한솔쓰");
+            Member member = new Member();
+            member.setUserName("솔이");
+            member.setTeam(team);
+            em.persist(member);
 
-            Member member3 = new Member();
-            member3.setUserName("솔빈쓰");
-            System.out.println("=============");
+            //쿼리보고싶을때
+            em.flush();
+            em.clear();
 
-            em.persist(member1);
-            em.persist(member2);
-            em.persist(member3);
-
-            System.out.println("member1 == " + member1.getId());
-            System.out.println("member2 == " + member2.getId());
-            System.out.println("member3 == " + member3.getId());
-
-            System.out.println("=============");
+            Member findMem = em.find(Member.class, member.getId());
+            Team team1 = findMem.getTeam();
 
 
             tx.commit();
