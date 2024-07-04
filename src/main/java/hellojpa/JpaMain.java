@@ -19,12 +19,14 @@ public class JpaMain {
 
             Team team = new Team();
             team.setName("빈이팀");
+           // team.getMembers().add(member);
             em.persist(team);
 
             Member member = new Member();
             member.setUserName("솔이");
             member.setTeam(team);
             em.persist(member);
+
 
             //쿼리보고싶을때
             em.flush();
