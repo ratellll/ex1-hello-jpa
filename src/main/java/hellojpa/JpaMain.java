@@ -2,6 +2,8 @@ package hellojpa;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 import static jakarta.persistence.Persistence.createEntityManagerFactory;
 
 public class JpaMain {
@@ -29,8 +31,11 @@ public class JpaMain {
             em.clear();
 
             Member findMem = em.find(Member.class, member.getId());
-            Team team1 = findMem.getTeam();
+            List<Member> members = findMem.getTeam().getMembers();
 
+            for (Member m : members) {
+                System.out.println(m.getUserName());
+            }
 
             tx.commit();
         } catch (Exception e) {
